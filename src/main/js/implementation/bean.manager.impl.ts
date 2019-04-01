@@ -16,13 +16,14 @@ export class BeanManagerImpl implements BeanManager {
 
     createBean(service: any): boolean {
         let bean: Bean = this.beans.get(service);
-        if (bean) {
-            let injector: BeanInjector = this.getInjector();
-            injector.resolve(service);
+        if (!bean) {
+            bean = new BeanImpl();
+            bean.assign(service);
+            this.beans.set(service, bean);
         }
-        bean = new BeanImpl();
-        bean.assign(service);
-        this.beans.set(service, bean);
+
+        let injector: BeanInjector = this.getInjector();
+        injector.resolve(service, bean);
         return this.beans.has(service);
     }
 
