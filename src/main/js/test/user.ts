@@ -1,0 +1,4 @@
+@Service
+export class User{
+
+}

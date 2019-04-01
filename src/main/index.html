@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script>
+            let size = Symbol("size");
+           
+            
+            class Collection{
+
+                 _data = [];
+                constructor(){
+                    this[size] = 0;
+                }
+
+                add(item) { 
+                    this._data[this[size]] = item;
+                    this[size]++;
+                }
+
+                static [Symbol.hasInstance](obj) {
+                    console.log(obj);
+                    return true;
+                }
+
+                iterator(){
+                    return this._data[Symbol.iterator]();
+                }
+
+
+                
+            }
+            console.log("test" instanceof Collection);
+            let list = new Collection();
+            list.add("test");
+            console.log(list.iterator());
+            let it = list.iterator();
+            let val;
+            while(val = it.next()){
+                if(val.done) break;
+                console.log("value = " + val.value);
+               
+            }
+        </script>
+    </head>
+</html>
