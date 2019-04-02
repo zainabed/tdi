@@ -4,7 +4,6 @@ import { BeanInjector } from "../context/bean.injector";
 import { BeanSubject } from "./bean.subject.impl";
 import { BeanImpl } from "./bean.impl";
 import { BeanInjectorFactory } from "./bean.injector.factory";
-//import {Subject} from "rxjs";
 
 export class BeanManagerImpl implements BeanManager {
 
@@ -16,14 +15,14 @@ export class BeanManagerImpl implements BeanManager {
 
     createBean(service: any): boolean {
         let bean: Bean = this.beans.get(service);
-        if (!bean) {
-            bean = new BeanImpl();
-            bean.assign(service);
-            this.beans.set(service, bean);
+        if (bean) {
+            let injector: BeanInjector = this.getInjector();
+            injector.resolve(service, bean);
         }
+        bean = new BeanImpl();
+        bean.assign(service);
+        this.beans.set(service.name, bean);
 
-        let injector: BeanInjector = this.getInjector();
-        injector.resolve(service, bean);
         return this.beans.has(service);
     }
 
@@ -31,6 +30,7 @@ export class BeanManagerImpl implements BeanManager {
         let bean: Bean = this.beans.get(name);
         if (!bean) {
             bean = new BeanSubject();
+            bean.assign(name);
             this.beans.set(name, bean);
         }
         return bean;

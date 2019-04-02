@@ -9,7 +9,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@reactivex/rxjs": "^6.4.0",
-    "rxjs": "^6.4.0"
+    "@reactivex/rxjs": "6.0.0",
+    "@types/reflect-metadata": "^0.1.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "6.0.0"
   }
 }

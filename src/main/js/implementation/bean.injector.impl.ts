@@ -2,10 +2,11 @@ import { BeanInjector } from "../context/bean.injector";
 import { Bean } from "../context/bean";
 
 export class BeanInjectorImpl implements BeanInjector {
-    resolve(service: string, bean: Bean) {
-        throw new Error("Method not implemented.");
+    resolve(target: any, bean: Bean) {
+        bean.resolve(target);
     }
-    inject(target: any, field: string, bean: Bean): boolean {
-        throw new Error("Method not implemented.");
+    inject(target: any, propertyKey: string, bean: Bean): boolean {
+        bean.apply(target, propertyKey);
+        return false;
     }
 }
