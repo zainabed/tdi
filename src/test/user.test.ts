@@ -1,17 +1,17 @@
-import { Service } from "../annotation/service";
-import { Autowired } from "../annotation/autowired";
+
 import { User } from "./user";
+import { Autowired } from "../main/js/annotation/autowired";
 
 class Test { }
 
 export class UserService {
 
-    @Autowired(User)
+    @Autowired()
     user: User;
 }
 
 export class UserHttp {
-    @Autowired(User)
+    @Autowired()
     user: User;
 }
 

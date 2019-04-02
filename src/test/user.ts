@@ -1,5 +1,7 @@
-import { Service } from "../annotation/service";
-import { Autowired } from "../annotation/autowired";
+import { Service } from "../main/js/annotation/service";
+import { Autowired } from "../main/js/annotation/autowired";
+
+
 
 @Service
 export class ParentUser {

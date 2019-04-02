@@ -18,8 +18,7 @@
       ],
       
       "paths" : {
-        "@app/lib/*" : ["main/js/lib/*"],
-        "@user/*": ["main/js/component/user/*"] 
+       
       }
     }
   }
