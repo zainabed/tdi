@@ -1,5 +1,5 @@
 {
-  "name": "tdi",
+  "name": "@zainabed/tdi",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,9 +9,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@reactivex/rxjs": "6.0.0",
     "@types/reflect-metadata": "^0.1.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "6.0.0"
+    "rxjs-compat": "^6.4.0",
+    "rxjs": "^6.4.0",
+    "typescript": "~3.2.2",
+    "@types/node": "~8.9.4"
   }
 }
